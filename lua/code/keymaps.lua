@@ -51,3 +51,8 @@ keymap({"n", "v"}, "<leader>h6", "<cmd>lua require('vscode').action('vscode-harp
 keymap({"n", "v"}, "<leader>h7", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor7')<CR>")
 keymap({"n", "v"}, "<leader>h8", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor8')<CR>")
 keymap({"n", "v"}, "<leader>h9", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor9')<CR>")
+
+
+-- fast vertical movement (normal mode only)
+keymap("n", "<C-j>", "10j", opts)
+keymap("n", "<C-k>", "10k", opts)
