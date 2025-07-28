@@ -17,11 +17,12 @@ require("lazy").setup({
   'nvim-tree/nvim-web-devicons', -- Adds file icons
 
   -- === UI & Appearance ===
-  {
-    'projekt0n/github-nvim-theme', -- Add this line for the GitHub theme
-    lazy = false,
-    priority = 1000,
+  { 
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000
   },
+
   'nvim-lualine/lualine.nvim', -- A fancy statusline
   'folke/which-key.nvim', -- Shows keybindings when you press the leader key
   -- 'nvim-tree/nvim-tree.lua', -- A file explorer
