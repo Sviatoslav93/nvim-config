@@ -1,4 +1,4 @@
-""" Map leader to space 
+""" Map leader to space
 let mapleader=" "
 
 """ Plugins
@@ -49,13 +49,11 @@ vnoremap < <gv
 vnoremap > >gv
 " execute macro saved in 'q' register
 nnoremap qj @q
-" popup navigation
-inoremap <C-j> <Action>(PopupMenu-selectNext)
-inoremap <C-k> <Action>(PopupMenu-selectPrev)
 
 """ Leader mappings
 " comment lines
 map <leader>c <action>(CommentByLineComment)
+map <leader>a <action>(ContextActions)
 " jump around with easymotion
 map <leader>j <Plug>(easymotion-s)
 " open NERDTree (use q to exit)
@@ -109,6 +107,11 @@ map <leader>ep <Action>(ReSharperGotoPrevErrorInSolution)
 " move faster in normal mode (Ctrl + J/K to move 10 lines)
 nnoremap <C-j> 8j
 nnoremap <C-k> 8k
+"fuzzier
+map <Leader>pf <action>(com.mituuz.fuzzier.Fuzzier)
+map <Leader>mf <action>(com.mituuz.fuzzier.FuzzyMover)
+map <Leader>gf <action>(com.mituuz.fuzzier.FuzzierVCS)
+map <Leader>ff <action>(com.mituuz.fuzzier.FuzzyGrep)
 
 """ Which-Key
 set which-key
