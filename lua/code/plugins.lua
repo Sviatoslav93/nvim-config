@@ -21,18 +21,30 @@ require("lazy").setup({
       cond = not not vim.g.vscode,
       opts = {},
     },
-  -- Lightspeed.nvim for fast word/character jumping
-  {
-    "ggandor/lightspeed.nvim",
-    config = function()
-      -- Lightspeed setup
-      require("lightspeed").setup({
-        -- Optional configuration options, for example:
-        limit_ft_matches = 4,  -- Limit the number of matches shown in the search
-        ignore_case = true,    -- Ignore case when searching
-        jump_to_unique_chars = true,  -- Jump directly to characters when there’s only one occurrence
-      })
 
+  -- leap.nvim
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require('leap').add_default_mappings()
+
+      -- Grey out the non-target area during a leap jump
+      vim.api.nvim_set_hl(0, 'LeapBackdrop', { fg = '#5c6370' }) -- a grey color
     end,
   },
+
+  -- whichkey
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("which-key").setup({})
+    end,
+  },
+
+  -- surround
+  {
+    "tpope/vim-surround"
+  },
+
 })
