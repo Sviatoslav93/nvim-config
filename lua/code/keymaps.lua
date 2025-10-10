@@ -29,14 +29,7 @@ keymap("n", "<Esc>", "<Esc>:noh<CR>", opts)
 -- general keymaps
 keymap({"n", "v"}, "<leader>t", "<cmd>lua require('vscode').action('workbench.action.terminal.toggleTerminal')<CR>")
 keymap({"n", "v"}, "<leader>b", "<cmd>lua require('vscode').action('editor.debug.action.toggleBreakpoint')<CR>")
-keymap({"n", "v"}, "<leader>d", "<cmd>lua require('vscode').action('editor.action.showHover')<CR>")
-keymap({"n", "v"}, "<leader>a", "<cmd>lua require('vscode').action('editor.action.quickFix')<CR>")
-keymap({"n", "v"}, "<leader>sp", "<cmd>lua require('vscode').action('workbench.actions.view.problems')<CR>")
-keymap({"n", "v"}, "<leader>cn", "<cmd>lua require('vscode').action('notifications.clearAll')<CR>")
 keymap({"n", "v"}, "<leader>ff", "<cmd>lua require('vscode').action('workbench.action.quickOpen')<CR>")
-keymap({"n", "v"}, "<leader>cp", "<cmd>lua require('vscode').action('workbench.action.showCommands')<CR>")
-keymap({"n", "v"}, "<leader>pr", "<cmd>lua require('vscode').action('code-runner.run')<CR>")
-keymap({"n", "v"}, "<leader>fd", "<cmd>lua require('vscode').action('editor.action.formatDocument')<CR>")
 
 -- harpoon keymaps
 keymap({"n", "v"}, "<leader>ha", "<cmd>lua require('vscode').action('vscode-harpoon.addEditor')<CR>")
@@ -52,6 +45,33 @@ keymap({"n", "v"}, "<leader>h7", "<cmd>lua require('vscode').action('vscode-harp
 keymap({"n", "v"}, "<leader>h8", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor8')<CR>")
 keymap({"n", "v"}, "<leader>h9", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor9')<CR>")
 
+
+-- code navigation
+keymap("n", "<leader>gi", "<cmd>lua require('vscode').action('editor.action.goToImplementation')<CR>", opts)       -- go to implementation
+keymap("n", "<leader>pi", "<cmd>lua require('vscode').action('editor.action.peekImplementation')<CR>", opts)    -- peek implementation
+keymap("n", "<leader>pd", "<cmd>lua require('vscode').action('editor.action.peekDefinition')<CR>", opts)        -- peek definition
+keymap("n", "<leader>pr", "<cmd>lua require('vscode').action('editor.action.referenceSearch.trigger')<CR>", opts) -- peek references
+keymap("n", "<leader>far", "<cmd>lua require('vscode').action('editor.action.referenceSearch.trigger')<CR>", opts) -- find all references
+keymap("n", "<leader>fai", "<cmd>lua require('vscode').action('editor.action.goToImplementation')<CR>", opts)     -- find all implementations
+
+-- Move to start/end of line (like Home/End)
+keymap("n", "H", "^", opts)
+keymap("n", "L", "$", opts)
+
+-- Insert blank line **below** current line and enter insert mode
+keymap("n", "<leader>o", "o<Esc>", opts)
+keymap("n", "<leader>O", "O<Esc>", opts)
+
+-- Paste without overwriting clipboard
+keymap("v", "<leader>p", '"_dP', opts)
+
+-- Delete without yanking
+keymap("n", "<leader>d", '"_d', opts)
+keymap("v", "<leader>d", '"_d', opts)
+
+-- Keep cursor centered on search
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 
 -- fast vertical movement (normal mode only)
 keymap("n", "<C-j>", "10j", opts)
