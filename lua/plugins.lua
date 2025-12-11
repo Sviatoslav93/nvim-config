@@ -17,12 +17,34 @@ require("lazy").setup({
   'nvim-tree/nvim-web-devicons', -- Adds file icons
 
   -- === UI & Appearance ===
-  { 
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000
-  },
+  --{ 
+    --"catppuccin/nvim",
+    --name = "catppuccin",
+    --priority = 1000
+  --},
+    { 
+        'rebelot/kanagawa.nvim',
+        name = "kanagawa",
+        priority = 1000 
+    },
+    {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    config = function()
+      require("kanagawa").setup({
+        transparent = false,
+        dimInactive = false,
+        theme = "wave", -- options: wave, dragon, lotus
+        background = {
+          dark = "wave",
+          light = "lotus",
+        },
+      })
 
+      -- Set colorscheme
+      vim.cmd("colorscheme kanagawa")
+    end,
+  },
   'nvim-lualine/lualine.nvim', -- A fancy statusline
   'folke/which-key.nvim', -- Shows keybindings when you press the leader key
   -- 'nvim-tree/nvim-tree.lua', -- A file explorer

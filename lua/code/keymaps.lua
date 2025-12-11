@@ -45,6 +45,10 @@ keymap({"n", "v"}, "<leader>h7", "<cmd>lua require('vscode').action('vscode-harp
 keymap({"n", "v"}, "<leader>h8", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor8')<CR>")
 keymap({"n", "v"}, "<leader>h9", "<cmd>lua require('vscode').action('vscode-harpoon.gotoEditor9')<CR>")
 
+-- panel and sidebars interaction
+keymap({"n", "v"}, "<C-h>", "<cmd>lua require('vscode').action('workbench.action.toggleSidebarVisibility')<CR>")
+keymap({"n", "v"}, "<C-l>", "<cmd>lua require('vscode').action('workbench.action.toggleAuxiliaryBar')<CR>")
+keymap({"n", "v"}, "<C-j>", "<cmd>lua require('vscode').action('workbench.action.togglePanel')<CR>")
 
 -- code navigation
 keymap("n", "<leader>gi", "<cmd>lua require('vscode').action('editor.action.goToImplementation')<CR>", opts)       -- go to implementation
@@ -74,5 +78,8 @@ keymap("n", "n", "nzzzv", opts)
 keymap("n", "N", "Nzzzv", opts)
 
 -- fast vertical movement (normal mode only)
-keymap("n", "<C-j>", "10j", opts)
-keymap("n", "<C-k>", "10k", opts)
+keymap("n", "<S-j>", "10j", opts)
+keymap("n", "<S-k>", "10k", opts)
+
+-- join lines
+keymap("n", "<leader>j", "J", opts)
