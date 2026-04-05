@@ -22,3 +22,4 @@ map('n', '<leader>e', '<Cmd>Ex<CR>', { desc = 'Open file explorer' })
 
 -- Undo history viewer
 map('n', '<leader>u', '<Cmd>UndotreeToggle<CR>', { desc = 'Toggle undo tree' })
+map('n', '<leader>t', '<Cmd>split | terminal<CR>', { desc = 'Open terminal (split)' })

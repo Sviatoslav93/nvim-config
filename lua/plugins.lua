@@ -12,6 +12,16 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  -- Dark low-contrast theme (load before other UI plugins).
+  {
+    "vague-theme/vague.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("vague").setup({})
+      vim.cmd.colorscheme("vague")
+    end,
+  },
   -- Lua helper library used by many plugins.
   { "nvim-lua/plenary.nvim", lazy = true },
   -- Filetype icons for UI plugins.
@@ -55,6 +65,18 @@ require("lazy").setup({
   {
     "tpope/vim-surround",
     event = "VeryLazy",
+  },
+  -- Fast jump/search motions across the current buffer.
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash jump" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter search" },
+    },
   },
   -- Auto-close brackets, quotes, and pairs while typing.
   {
