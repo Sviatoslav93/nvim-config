@@ -1,0 +1,39 @@
+" vimrc configuration for vscode vim extension
+
+" file manipulations
+nnoremap <leader>q :q!<CR>
+
+" general mappings
+nnoremap <C-a> ggVG
+inoremap jk <Esc>
+
+" faster moving
+nnoremap J 5j
+nnoremap K 5k
+nnoremap <leader>j J
+
+" quick line navigation
+nnoremap H ^
+nnoremap L $
+xnoremap H ^
+xnoremap L $
+
+" search improvments
+nnoremap n nzz
+nnoremap N Nzz
+
+" keep cursor centered when scrolling
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+" keep selection when indenting
+xnoremap < <gv
+xnoremap > >gv
+
+" quick replace world
+nnoremap <leader>r :%s/\<<C-r><C-w>\>//gI<Left><Left><Left>
+
+" splits
+nnoremap <leader>sv :vsplit<CR>
+nnoremap <leader>sh :split<CR>
+

@@ -23,7 +23,7 @@ require("lazy").setup({
     end,
   },
   -- Lua helper library used by many plugins.
-  { "nvim-lua/plenary.nvim", lazy = true },
+  { "nvim-lua/plenary.nvim",       lazy = true },
   -- Filetype icons for UI plugins.
   { "nvim-tree/nvim-web-devicons", lazy = true },
 
@@ -72,10 +72,10 @@ require("lazy").setup({
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash jump" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter search" },
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash jump" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash treesitter" },
+      { "r", mode = "o",               function() require("flash").remote() end,            desc = "Remote flash" },
+      { "R", mode = { "o", "x" },      function() require("flash").treesitter_search() end, desc = "Treesitter search" },
     },
   },
   -- Auto-close brackets, quotes, and pairs while typing.
@@ -89,6 +89,37 @@ require("lazy").setup({
     "numToStr/Comment.nvim",
     event = "VeryLazy",
     opts = {},
+  },
+  {
+    "romgrk/barbar.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons", -- icons
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    config = function()
+      require("barbar").setup({
+        animation = false, -- faster
+        auto_hide = false,
+        tabpages = true,
+        clickable = true,
+        icons = {
+          buffer_index = true,
+          buffer_number = false,
+          button = "",
+          diagnostics = {
+            [vim.diagnostic.severity.ERROR] = { enabled = true },
+            [vim.diagnostic.severity.WARN]  = { enabled = true },
+          },
+          gitsigns = {
+            added = { enabled = true },
+            changed = { enabled = true },
+            deleted = { enabled = true },
+          },
+        },
+      })
+    end,
   },
 }, {
   checker = { enabled = false },

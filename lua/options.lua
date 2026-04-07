@@ -41,6 +41,9 @@ vim.opt.path:append("**")
 -- clipboard
 vim.opt.clipboard = 'unnamedplus'
 
+-- tabs
+vim.opt.showtabline = 2
+
 -- Yank highlight
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
