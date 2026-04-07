@@ -11,3 +11,9 @@ if vim.g.colors_name ~= "vague" then
     end
   end
 end
+
+-- main editor uses terminal background
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = '#161b22' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { fg = '#30363d', bg = '#161b22' })
+
