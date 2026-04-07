@@ -1,0 +1,100 @@
+{
+    // editor
+    "editor.fontFamily": "JetBrainsMono Nerd Font Propo",
+    "editor.fontSize": 14,
+    "editor.lineHeight": 1.5,
+    "editor.fontWeight": "500",
+    "editor.detectIndentation": true,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.renderWhitespace": "all",
+    // workbench
+    "workbench.editor.showTabs": "single",
+    "workbench.activityBar.location": "top",
+    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.colorTheme": "cursor-dark",
+    // containers
+    "containers.containerClient": "com.microsoft.visualstudio.containers.docker",
+    "containers.orchestratorClient": "com.microsoft.visualstudio.orchestrators.dockercompose",
+    // zen mode
+    "zenMode.centerLayout": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.showTabs": "single",
+    // diff editor
+    "diffEditor.renderSideBySide": false,
+    // neovim
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1,
+    },
+    "vscode-neovim.compositeKeys": {
+        "jj": {
+            "command": "vscode-neovim.escape",
+        },
+        "jk": {
+            // Use lua to execute any logic
+            "command": "vscode-neovim.lua",
+            "args": [
+                [
+                    "local code = require('vscode')",
+                    "code.action('vscode-neovim.escape')",
+                    "code.action('workbench.action.files.save')",
+                ],
+            ],
+        },
+    },
+    // vscodevim
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "C:\\Users\\Sviatoslav\\AppData\\Local\\nvim\\.vscodevimrc",
+    // easymotion
+    "vim.easymotion": true,
+    // surround
+    "vim.surround": true,
+    // commentary
+    "vim.commentary": true,
+    // camelCaseMotion
+    "vim.camelCaseMotion.enable": true,
+    // test
+    // test
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "q"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsInGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "m"
+            ],
+            "commands": [
+                "bookmarks.toggle"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-b>": false, // Allow VSCode to handle Ctrl+b for toggling the sidebar
+        "<C-f>": false, // Allow VSCode to handle Ctrl+f for opening the search bar
+        "<C-p>": false // Allow VSCode to handle Ctrl+p for opening the command palette
+    },
+}
